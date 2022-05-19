@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --myblue: #4c6986;
+  --mygray: #9a9a9a;
+  --myborder: rgba(137, 163, 189, 0.9);
+  --playerX: #42bed7;
+  --playero: #9a48ff;
+  --winner: #23ce6b;
+}
+
+body {
+  font-family: "Merriweather Sans", sans-serif;
+  color: var(--myblue);
+}
+
+h1 {
+  font-size: 70px;
+}
+
+.container {
+  max-width: 1440px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.tile {
+  max-width: 500px;
+}
+
+.restart {
+  width: 175px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  border: 2px solid var(--myblue);
+  cursor: pointer;
+  transition: all ease-in 0.3s;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.restart:hover {
+  background: var(--myblue);
+  color: #fff;
+}
+
+.game {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  color: var(--mygray);
+  font-size: 24px;
+}
+.header .player-x,
+.header .player-o {
+  flex: 1;
+  border-bottom: 5px solid #eee;
+  padding-bottom: 8px;
+}
+
+.player-x.active {
+  color: var(--playerX);
+  border-color: var(--playerX);
+}
+
+.player-o.active {
+  color: var(--playero);
+  border-color: var(--playero);
+}
+
+.tile-x {
+  color: var(--playerX);
+}
+
+.tile-o {
+  color: var(--playero);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 0px;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.board-tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+  cursor: pointer;
+}
+
+.board-tile:hover {
+  background: #eee;
+}
+
+.board-tile:not(:nth-child(3n)) {
+  border-right: 3px solid var(--myborder);
+}
+
+.board-tile:not(:nth-last-child(-n + 3)) {
+  border-bottom: 3px solid var(--myborder);
+}
+
+.tile-winner span {
+  color: var(--winner);
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    justify-content: center;
+  }
+  .col-1 {
+    margin-bottom: 50px;
+  }
+}
